@@ -1,47 +1,34 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <header class="w-full bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 text-white shadow-md py-4 px-6 relative z-50">
-  <div class="flex items-center justify-between">
-    
-    <div class="flex items-center space-x-4">
-      <img src="assets/images/arizonalogo.png" class="w-14 h-14 rounded-full border-4 border-white shadow-lg" alt="Logo" />
-    </div>
-
-    
-    <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
-      <NuxtLink to="/" class="hover:text-gray-300 transition">Home</NuxtLink>
-
-      <div class="relative group">
-        <button class="hover:text-gray-300 transition">Labs</button>
-        <div class="absolute hidden group-hover:flex flex-col mt-2 bg-gray-800 rounded shadow-lg z-40 min-w-[120px]">
-          <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-gray-700">Lab3</NuxtLink>
-          <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-gray-700">Lab4</NuxtLink>
-          <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-gray-700">Lab5</NuxtLink>
-          <NuxtLink to="/lab6" class="px-4 py-2 hover:bg-gray-700">Lab6</NuxtLink>
-        </div>
+    <header class="flex flex-row w-full bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 text-white shadow-md py-4 px-6 relative">
+      <div class="basis-1/4 flex items-center justify-start px-4">
+        <img src="assets/images/arizonalogo.png" class="w-16 h-16 rounded-full border-4 border-white shadow-lg" alt="Logo" />
       </div>
+      <div class="basis-1/4"></div>
+      <nav
+  :class="{
+    'basis-1/2 flex flex-row items-center justify-end px-8 gap-4': !burger || burger,
+    'max-sm:basis-auto max-sm:absolute max-sm:top-full max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:gap-2 max-sm:bg-gray-900 max-sm:px-4 max-sm:py-4 max-sm:text-white': burger,
+    'max-sm:hidden': !burger,}"
+>
+  <NuxtLink to="/" @click="burger = false" class="px-4 py-2 rounded hover:bg-gray-700 transition max-sm:w-full max-sm:text-center">Home</NuxtLink>
 
-      <NuxtLink to="/login" class="hover:text-gray-300 transition">LogIn</NuxtLink>
-      <NuxtLink to="/logout" class="hover:text-gray-300 transition">LogOut</NuxtLink>
-    </nav>
+  <div @click="switch_submenu" class="px-4 py-2 rounded hover:bg-gray-700 cursor-pointer transition max-sm:w-full max-sm:text-center">Labs</div>
+
+  <div class="flex flex-col absolute top-full bg-gray-900 text-white text-sm shadow-lg rounded mt-1 z-40 max-sm:relative max-sm:w-full max-sm:bg-gray-800" v-show="submenu">
+    <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab3</NuxtLink>
+    <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab4</NuxtLink>
+    <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab5</NuxtLink>
+    <NuxtLink to="/lab6" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab6</NuxtLink>
   </div>
 
-   <transition name="fade">
-    <div v-if="burger" class="flex flex-col gap-3 mt-4 sm:hidden bg-gray-900 p-4 rounded-md z-40">
-      <NuxtLink to="/" @click="switch_burger" class="text-white text-center">Home</NuxtLink>
-
-      <button @click="switch_submenu" class="text-white text-center">Labs</button>
-      <div v-if="submenu" class="flex flex-col gap-1 bg-gray-800 rounded p-2 text-sm">
-        <NuxtLink to="/lab3" class="hover:bg-gray-700 px-2 py-1 rounded">Lab3</NuxtLink>
-        <NuxtLink to="/lab4" class="hover:bg-gray-700 px-2 py-1 rounded">Lab4</NuxtLink>
-        <NuxtLink to="/lab5" class="hover:bg-gray-700 px-2 py-1 rounded">Lab5</NuxtLink>
-        <NuxtLink to="/lab6" class="hover:bg-gray-700 px-2 py-1 rounded">Lab6</NuxtLink>
-      </div>
-
-      <NuxtLink to="/login" @click="switch_burger" class="text-white text-center">LogIn</NuxtLink>
-      <NuxtLink to="/logout" @click="switch_burger" class="text-white text-center">LogOut</NuxtLink>
-    </div>
-  </transition>
+  <NuxtLink to="/login" class="px-4 py-2 rounded hover:bg-gray-700 transition max-sm:w-full max-sm:text-center">
+    LogIn
+  </NuxtLink>
+  <NuxtLink to="/logout" class="px-4 py-2 rounded hover:bg-gray-700 transition max-sm:w-full max-sm:text-center">
+    LogOut
+  </NuxtLink>
+</nav>
 
 
       
