@@ -15,7 +15,7 @@
 
   <div @click="switch_submenu" class="px-4 py-2 rounded hover:bg-gray-700 cursor-pointer transition max-sm:w-full max-sm:text-center">Labs</div>
 
-  <div class="flex flex-col absolute top-full bg-gray-900 text-white text-sm shadow-lg rounded mt-1 z-40 max-sm:relative max-sm:w-full max-sm:bg-gray-800" v-show="submenu">
+  <div class="flex flex-col absolute right-0 top-full bg-gray-900 text-white text-sm shadow-lg rounded mt-1 z-40 max-sm:relative max-sm:w-full max-sm:bg-gray-800" v-show="submenu">
     <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab3</NuxtLink>
     <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab4</NuxtLink>
     <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab5</NuxtLink>
