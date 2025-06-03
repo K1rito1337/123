@@ -2,7 +2,7 @@
   <div class="flex flex-col min-h-screen">
     <header class="flex flex-row w-full bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 text-white shadow-md py-4 px-6 relative">
       <div class="basis-1/4 flex items-center justify-start px-4">
-        <img src="assets/images/arizonalogo.png" class="w-16 h-16 rounded-full border-4 border-white shadow-lg" alt="Logo" />
+        <img src="assets/images/arizonalogo.png" class="w-24 h-24 rounded-full border-4 border-white shadow-lg" alt="Logo" />
       </div>
       <div class="basis-1/4"></div>
       <nav
