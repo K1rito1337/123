@@ -10,30 +10,30 @@
       <nav
   :class="{
     'basis-1/2 flex flex-row items-center justify-end px-2 gap-2': !burger || burger,
-    'max-sm:basis-auto max-sm:absolute max-sm:top-full max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:gap-0 max-sm:bg-gray-900 max-sm:px-0': burger,
+    'max-sm:basis-auto max-sm:absolute max-sm:top-full max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:gap-0 max-sm:bg-slate-800 max-sm:px-0': burger,
     'max-sm:hidden': !burger,}"
 >
-  <NuxtLink to="/" @click="burger = false" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Home</NuxtLink>
+  <NuxtLink to="/" @click="burger = false" class="my-auto p-2 rounded hover:bg-slate-700 text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Home</NuxtLink>
 
   <div class="relative">
-  <div @click="switch_submenu" class="my-auto p-2 rounded hover:bg-gray-500 text-white cursor-pointer max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
-    Labs
+    <div @click="switch_submenu" class="my-auto p-2 rounded hover:bg-slate-700 text-white cursor-pointer max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
+      Labs
+    </div>
+    <div
+      class="flex flex-col absolute right-0 top-full bg-slate-800 text-white w-56 text-left shadow-lg rounded mt-1 z-40 max-sm:static max-sm:w-56 max-sm:mx-auto max-sm:mt-2"
+      v-show="submenu"
+    >
+      <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-slate-700 transition">Lab3</NuxtLink>
+      <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-slate-700 transition">Lab4</NuxtLink>
+      <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-slate-700 transition">Lab5</NuxtLink>
+      <NuxtLink to="/lab6" class="px-4 py-2 hover:bg-slate-700 transition">Lab6</NuxtLink>
+    </div>
   </div>
-  <div
-    class="flex flex-col absolute right-0 top-full bg-gray-900 text-white w-56 text-left shadow-lg rounded mt-1 z-40 max-sm:static max-sm:w-56 max-sm:mx-auto max-sm:mt-2"
-    v-show="submenu"
-  >
-    <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-gray-700 transition">Lab3</NuxtLink>
-    <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-gray-700 transition">Lab4</NuxtLink>
-    <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-gray-700 transition">Lab5</NuxtLink>
-    <NuxtLink to="/lab6" class="px-4 py-2 hover:bg-gray-700 transition">Lab6</NuxtLink>
-  </div>
-</div>
 
-  <NuxtLink to="/login" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
+  <NuxtLink to="/login" class="my-auto p-2 rounded hover:bg-slate-700 text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
     LogIn
   </NuxtLink>
-  <NuxtLink to="/logout" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
+  <NuxtLink to="/logout" class="my-auto p-2 rounded hover:bg-slate-700 text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
     LogOut
   </NuxtLink>
 </nav>
