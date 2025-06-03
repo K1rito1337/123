@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <header class="flex flex-row w-full bg-gray-900 border-b-2 border-gray-900 max-sm:justify-between max-sm:relative">
-      <div class="basis-1/4 flex items-center justify-start px-4">
+    <header class="flex w-full items-center justify-between bg-gray-900 shadow-sm py-2 sticky top-0 z-50 text-gray-500">
+      <div class="basis-1/4 flex items-center justify-start px-8 min-w-40 max-sm:basis-auto">
         <img src="assets/images/arizonalogo.png"
      class="w-16 h-16 bg-white rounded-full p-1 shadow-md hover:scale-110 transition-transform"
      alt="Logo" />
       </div>
-      <div class="basis-1/4"></div>
+      <div class="basis-1/4 max-sm:basis-auto"></div>
       <nav
   :class="{
     'basis-1/2 flex flex-row items-center justify-end px-2 gap-2': !burger || burger,
@@ -15,14 +15,20 @@
 >
   <NuxtLink to="/" @click="burger = false" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Home</NuxtLink>
 
-  <div @click="switch_submenu" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Labs
-  <div class="flex flex-col absolute  top-full bg-gray-500 text-white w-56 text-center max-sm:relative max-sm:w-full max-sm:bg-gray-700" v-show="submenu">
-    <NuxtLink to="/lab3" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Lab3</NuxtLink>
-    <NuxtLink to="/lab4" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Lab4</NuxtLink>
-    <NuxtLink to="/lab5" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Lab5</NuxtLink>
-    <NuxtLink to="/lab6" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Lab6</NuxtLink>
+  <div class="relative">
+  <div @click="switch_submenu" class="my-auto p-2 rounded hover:bg-gray-500 text-white cursor-pointer max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
+    Labs
   </div>
+  <div
+    class="flex flex-col absolute right-0 top-full bg-gray-900 text-white w-56 text-left shadow-lg rounded mt-1 z-40 max-sm:static max-sm:w-56 max-sm:mx-auto max-sm:mt-2"
+    v-show="submenu"
+  >
+    <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-gray-700 transition">Lab3</NuxtLink>
+    <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-gray-700 transition">Lab4</NuxtLink>
+    <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-gray-700 transition">Lab5</NuxtLink>
+    <NuxtLink to="/lab6" class="px-4 py-2 hover:bg-gray-700 transition">Lab6</NuxtLink>
   </div>
+</div>
 
   <NuxtLink to="/login" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">
     LogIn
@@ -35,7 +41,7 @@
       <div
   v-if="!burger"
   @click="switch_burger"
-  class="sm:hidden flex flex-col justify-between items-center w-8 h-6 cursor-pointer ml-auto"
+  class="max-sm:flex max-sm:flex-col max-sm:mr-8 max-sm:justify-between max-sm:items-center max-sm:w-8 max-sm:h-6"
 >
   <span class="h-[3px] w-full bg-white"></span>
   <span class="h-[3px] w-full bg-white"></span>
@@ -46,7 +52,7 @@
 <div
   v-else
   @click="switch_burger"
-  class="sm:hidden flex flex-col justify-between items-center w-8 h-6 cursor-pointer ml-auto"
+  class="max-sm:flex max-sm:flex-col max-sm:mr-8 max-sm:justify-between max-sm:items-center max-sm:w-8 max-sm:h-6"
 >
   <span class="h-[3px] w-full bg-white rotate-45 relative top-[9px]"></span>
   <span class="h-[3px] w-full bg-white opacity-0"></span>
