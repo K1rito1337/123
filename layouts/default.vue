@@ -7,58 +7,57 @@
       <div class="basis-1/4"></div>
       <nav
   :class="{
-    'basis-1/2 flex flex-row items-center justify-end px-8 gap-4': !burger || burger,
-    'max-sm:basis-auto max-sm:absolute max-sm:top-full max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:gap-2 max-sm:bg-gray-900 max-sm:px-4 max-sm:py-4 max-sm:text-white': burger,
+    'basis-1/2 flex flex-row items-center justify-end px-2 gap-2': !burger || burger,
+    'max-sm:basis-auto max-sm:absolute max-sm:top-full max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:gap-0 max-sm:bg-gray-900 max-sm:px-0': burger,
     'max-sm:hidden': !burger,}"
 >
-  <NuxtLink to="/" @click="burger = false" class="px-4 py-2 rounded hover:bg-gray-700 transition max-sm:w-full max-sm:text-center">Home</NuxtLink>
+  <NuxtLink to="/" @click="burger = false" class="px-1 py-2 rounded hover:bg-gray-500 transition max-sm:w-48 max-sm:text-center">Home</NuxtLink>
 
-  <div @click="switch_submenu" class="px-4 py-2 rounded hover:bg-gray-700 cursor-pointer transition max-sm:w-full max-sm:text-center">Labs
-  <div class="flex flex-col absolute right-0 top-full bg-gray-900 text-white text-sm shadow-lg rounded mt-1 z-40 max-sm:relative max-sm:w-full max-sm:bg-gray-800" v-show="submenu">
-    <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab3</NuxtLink>
-    <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab4</NuxtLink>
-    <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab5</NuxtLink>
-    <NuxtLink to="/lab6" class="px-4 py-2 hover:bg-gray-700 transition max-sm:text-center">Lab6</NuxtLink>
+  <div @click="switch_submenu" class="my-auto p-2 rounded hover:bg-gray-500 hover text-white max-sm:w-full max-sm:text-center max-sm:px-0 max-sm:pb-0">Labs
+  <div class="flex flex-col absolute  top-full bg-gray-500 text-white w-56 text-center max-sm:relative max-sm:w-full max-sm:bg-gray-700" v-show="submenu">
+    <NuxtLink to="/lab3" class="px-4 py-2 hover:bg-gray-500 transition max-sm:text-center">Lab3</NuxtLink>
+    <NuxtLink to="/lab4" class="px-4 py-2 hover:bg-gray-500 transition max-sm:text-center">Lab4</NuxtLink>
+    <NuxtLink to="/lab5" class="px-4 py-2 hover:bg-gray-500 transition max-sm:text-center">Lab5</NuxtLink>
+    <NuxtLink to="/lab6" class="px-4 py-2 hover:bg-gray-500 transition max-sm:text-center">Lab6</NuxtLink>
   </div>
   </div>
 
-  <NuxtLink to="/login" class="px-4 py-2 rounded hover:bg-gray-700 transition max-sm:w-full max-sm:text-center">
+  <NuxtLink to="/login" class="px-4 py-2 rounded hover:bg-gray-500 transition max-sm:w-full max-sm:text-center">
     LogIn
   </NuxtLink>
-  <NuxtLink to="/logout" class="px-4 py-2 rounded hover:bg-gray-700 transition max-sm:w-full max-sm:text-center">
+  <NuxtLink to="/logout" class="px-4 py-2 rounded hover:bg-gray-500 transition max-sm:w-full max-sm:text-center">
     LogOut
   </NuxtLink>
 </nav>
 
+      <div
+  v-if="!burger"
+  @click="switch_burger"
+  class="sm:hidden flex flex-col justify-between items-center w-8 h-6 cursor-pointer ml-auto"
+>
+  <span class="h-[3px] w-full bg-white"></span>
+  <span class="h-[3px] w-full bg-white"></span>
+  <span class="h-[3px] w-full bg-white"></span>
+</div>
 
-      
-      <div
-        v-if="!burger"
-        @click="switch_burger"
-        class="z-50 cursor-pointer hidden max-sm:flex flex-col mr-4 justify-between items-center w-8 h-6"
-      >
-        <span class="h-[3px] w-full bg-white"></span>
-        <span class="h-[3px] w-full bg-white"></span>
-        <span class="h-[3px] w-full bg-white"></span>
-      </div>
-      <div
-        v-else
-        @click="switch_burger"
-        class="z-50 cursor-pointer hidden max-sm:flex flex-col mr-4 justify-between items-center w-8 h-6"
-      >
-        <span class="h-[3px] w-full bg-white rotate-45 relative top-[9px]"></span>
-        <span class="h-[3px] w-full bg-white opacity-0"></span>
-        <span class="h-[3px] w-full bg-white -rotate-45 relative bottom-[9px]"></span>
-      </div>
+
+<div
+  v-else
+  @click="switch_burger"
+  class="sm:hidden flex flex-col justify-between items-center w-8 h-6 cursor-pointer ml-auto"
+>
+  <span class="h-[3px] w-full bg-white rotate-45 relative top-[9px]"></span>
+  <span class="h-[3px] w-full bg-white opacity-0"></span>
+  <span class="h-[3px] w-full bg-white rotate-[-45deg] relative bottom-3"></span>
+</div>
     </header>
-
     
-    <main class="flex-grow flex flex-col items-center justify-center bg-gray-100 py-12 px-4">
+    <main class="p-5 flex bg-gray-300 h-screen">
       <slot />
     </main>
 
    
-    <footer class="w-full bg-gray-800 text-white py-6">
+    <footer class="w-full bg-gray-900 text-white py-6">
       <div class="flex justify-center gap-8">
         <a href="https://www.youtube.com/" target="_blank" rel="noopener">
           <img src="assets/images/youtube.png" class="w-12 h-12 hover:scale-110 transition-transform" alt="YouTube" />
